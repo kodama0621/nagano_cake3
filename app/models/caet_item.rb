@@ -1,0 +1,2 @@
+class CaetItem < ApplicationRecord
+end
