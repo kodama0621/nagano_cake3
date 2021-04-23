@@ -4,7 +4,7 @@
   </div>
 
 <div class="row">
-  <table class="table col">
+  <table class="table col-8">
     <tr>
       <th>商品名</th>
       <th>単価(税込)</th>
@@ -21,7 +21,8 @@
     </tr>
       <% end %>
   </table>
-  <table class="table col mr-3">
+ <div style="width: 20%" class="pl-4">
+ <table class="table col-lg-12">
     <tr>
       <th>送料</th>
       <td><%= session[:order][:shipping_cost] %></td>
@@ -34,7 +35,8 @@
       <th>請求金額</th>
       <td><%= session[:order][:total_payment].to_s(:delimited) %></td>
     </tr>
-  </table>
+ </table>
+ </div>
 </div>
 
   <%= form_with model: @order,local: true, url: orders_path do |f| %>

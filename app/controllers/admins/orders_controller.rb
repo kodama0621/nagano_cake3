@@ -1,4 +1,5 @@
 class Admins::OrdersController < ApplicationController
+  
   def show
     @order = Order.find(params[:id])
     @sum = 0
@@ -9,4 +10,5 @@ class Admins::OrdersController < ApplicationController
 
   def update
   end
+  
 end
