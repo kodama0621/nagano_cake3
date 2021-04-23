@@ -1,2 +1,0 @@
-class CaetItem < ApplicationRecord
-end

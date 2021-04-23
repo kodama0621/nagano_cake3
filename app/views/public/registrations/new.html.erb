@@ -1,29 +1,63 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "publics/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container">
+  <div class="row my-4">
+    <h3>新規会員登録</h3>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <%= form_with model: @customer ,url: customer_registration_path, local:true do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form_group row mb-3">
+    <%= f.label :name,"名前" ,class: "col-lg-2"%><br />
+    <p>(姓)</p><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",class: "col-lg-4 form-control" %>
+    <p>(名)</p><%= f.text_field :first_name, autocomplete: "first_name" ,class: "col-lg-4 form-control" %>
+  </div>
+
+  <div class="form_group row mb-3">
+    <%= f.label :kana,"フリガナ" ,class: "col-lg-2" %><br />
+    <p>(セイ)</p><%= f.text_field :last_name_kana, autocomplete: "last_name_kana" ,class: "col-lg-4 form-control" %>
+    <p>(メイ)</p><%= f.text_field :first_name_kana, autocomplete: "first_name_kana" ,class: "col-lg-4 form-control" %>
+  </div>
+
+  <div class="form_group row mb-3">
+    <%= f.label :email,"メールアドレス" ,class: "col-lg-2" %><br />
+    <%= f.email_field :email, autocomplete: "email" ,class: "col-lg-4 form-control" %>
+  </div>
+
+  <div class="form_group row mb-3">
+    <%= f.label :postal_code,"郵便番号ハイフンなし" ,class: "col-lg-2" %><br />
+    <%= f.text_field :postal_code, autocomplete: "postal_cose" ,class: "col-lg-4 form-control" %>
+  </div>
+
+  <div class="form_group row mb-3">
+    <%= f.label :address,"住所" ,class: "col-lg-2" %><br />
+    <%= f.text_field :address, autocomplete: "address" ,class: "col-lg-10 form-control" %>
+  </div>
+
+  <div class="form_group row mb-3">
+    <%= f.label :telephone_number,"電話番号ハイフンなし",class: "col-lg-2"  %><br />
+    <%= f.text_field :telephone_number, autocomplete: "telephone_number" ,class: "col-lg-4 form-control" %>
+  </div>
+
+  <div class="form_group row mb-3">
+    <%= f.label :password, "パスワード" ,class: "col-lg-2" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %>文字以上)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password",class: "col-lg-4 form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form_group row mb-3">
+    <%= f.label :password, "パスワード確認用",class: "col-lg-2" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: "col-lg-4 form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <%= f.submit "新規登録",class: "form-control w-25 btn btn-success" %>
 
-<%= render "publics/shared/links" %>
+  <div class="row my-3">
+    <h3>既に登録済みの方</h3>
+  </div>
+    <P><%= link_to "こちら", new_customer_session_path %>　からログインしてください。</P>
+
+</div>
+<% end %>

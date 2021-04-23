@@ -1,0 +1,21 @@
+<div class="container">
+
+  <div class="row my-4">
+    <h3>配送先編集</h3>
+  </div>
+
+    <%= form_with model: @address,local: true do |f| %>
+    <div class="form-group row">
+    <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "col-lg-3" %>
+    <%= f.text_field :postal_code ,class: "form-control col-lg-5" %>
+  </div>
+  <div class="form-group row">
+    <%= f.label :addresses, "住所",class: "col-lg-3" %>
+    <%= f.text_field :addresses, class: "form-control col-lg-7" %>
+  </div>
+  <div class="form-group row">
+    <%= f.label :name, "宛名",class: "col-lg-3" %>
+    <%= f.text_field :name, class: "form-control col-lg-5" %>
+  </div>
+  <%= f.submit "変更内容を保存",class: "btn btn-success ml-5" %>
+  <% end %>

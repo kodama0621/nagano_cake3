@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row my-4">
+    <h3>会員情報編集</h3>
+  </div>
+
+  <%= form_with model: @customer ,url: customers_path, local:true do |f| %>
+
+  <div class="form_group row mb-3">
+    <%= f.label :name,"氏名" ,class: "col-lg-2"%><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name",class: "col-lg-3 mr-3 form-control" %>
+    <%= f.text_field :first_name, autocomplete: "first_name" ,class: "col-lg-3 form-control" %>
+  </div>
+
+  <div class="form_group row mb-3">
+    <%= f.label :kana,"フリガナ" ,class: "col-lg-2" %><br />
+    <%= f.text_field :last_name_kana, autocomplete: "last_name_kana" ,class: "col-lg-3 mr-3 form-control" %>
+    <%= f.text_field :first_name_kana, autocomplete: "first_name_kana" ,class: "col-lg-3 form-control" %>
+  </div>
+
+  <div class="form_group row mb-3">
+    <%= f.label :postal_code,"郵便番号" ,class: "col-lg-2" %><br />
+    <%= f.text_field :postal_code, autocomplete: "postal_cose" ,class: "col-lg-3 form-control" %>
+  </div>
+
+   <div class="form_group row mb-3">
+    <%= f.label :address,"住所" ,class: "col-lg-2" %><br />
+    <%= f.text_field :address, autocomplete: "address" ,class: "col-lg-8 form-control" %>
+  </div>
+
+  <div class="form_group row mb-3">
+    <%= f.label :telephone_number,"電話番号",class: "col-lg-2"  %><br />
+    <%= f.text_field :telephone_number, autocomplete: "telephone_number" ,class: "col-lg-3 form-control" %>
+  </div>
+
+  <div class="form_group row mb-3">
+    <%= f.label :email,"メールアドレス" ,class: "col-lg-2" %><br />
+    <%= f.email_field :email, autocomplete: "email" ,class: "col-lg-3 form-control" %>
+  </div>
+
+  <div class="form_group">
+    <%= f.submit "変更内容を保存",class: "col-lg-2 mr-4 form-control w-25 btn btn-success" %>
+  <% end %>
+    <%= link_to "退会する",customers_destroy_path, class: "col-lg-2 form-control w-25 btn btn-danger" %>
+  </div>
+</div>

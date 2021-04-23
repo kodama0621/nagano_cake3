@@ -1,12 +1,20 @@
 # frozen_string_literal: true
 
 class Admins::SessionsController < Devise::SessionsController
+  # skip_before_action :authenticate_admin!,only: [:new]
   # before_action :configure_sign_in_params, only: [:create]
+  def after_sign_in_path_for(admin)
+    admins_top_path
+  end
+
+  def after_sign_out_path_for(admin)
+    new_admin_session_path
+  end
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+   def new
+     super
+   end
 
   # POST /resource/sign_in
   # def create
@@ -14,9 +22,9 @@ class Admins::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+   def destroy
+     super
+   end
 
   # protected
 
